@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: radial-gradient(circle, rgba(255, 0, 150, 0.3), rgba(0, 255, 255, 0.3)),
+                        radial-gradient(circle, rgba(255, 255, 0, 0.3), rgba(0, 0, 255, 0.3));
+            background-blend-mode: screen;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded-2xl shadow-lg w-96 text-center">
+        <h2 class="text-2xl font-bold mb-4">Iniciar Sesión</h2>
+        <input type="text" placeholder="Nombre" class="w-full p-2 mb-3 border rounded">
+        <input type="text" placeholder="Número" class="w-full p-2 mb-3 border rounded">
+        <button class="w-full bg-blue-500 text-white p-2 rounded">Ingresar</button>
+    </div>
+    
+    <script>
+        async function getIP() {
+            try {
+                let response = await fetch('https://api64.ipify.org?format=json');
+                let data = await response.json();
+                document.getElementById('user-ip').textContent = data.ip;
+            } catch (error) {
+                document.getElementById('user-ip').textContent = 'No disponible';
+            }
+        }
+        getIP();
+    </script>
+</body>
+</html>
